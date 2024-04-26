@@ -62,7 +62,7 @@ fi
 if [ -n "${PYTHONSTARTUP:-}" ] ; then
     _OLD_VIRTUAL_PYTHONSTARTUP="${PYTHONSTARTUP:-}"
 fi
-PYTHONSTARTUP="$VIRTUAL_ENV/pystartup"
+PYTHONSTARTUP="$VIRTUAL_ENV/startup.py"
 export PYTHONSTARTUP
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then

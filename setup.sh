@@ -22,6 +22,8 @@ R CMD INSTALL --library="$VENV_DIR/lib/R${R_VERSION}" lib/R-lib
 
 # Generate 'reload' function for R like the Pythons's 'importlib.reload'.
 if [ -n "$editable" ]; then
+    echo 'from importlib import reload' >"$VENV_DIR/startup.py"
+
     cat >"$VENV_DIR/Rprofile" <<-EOF
 		reload <- function(pkg, ...) {
 		    pkg <- deparse(substitute(pkg))
