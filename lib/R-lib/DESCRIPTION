@@ -1,0 +1,7 @@
+Package: user
+Title: Project library
+Version: 0.1
+Author: Leonardo Gama
+Maintainer: Leonardo Gama <leonardo.gama@usp.br>
+Description: User-defined functions used in multiple scripts.
+License: Copyright
