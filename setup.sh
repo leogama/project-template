@@ -20,8 +20,15 @@ pip install --require-virtualenv $editable lib/python-lib
 R_VERSION=$(Rscript --vanilla -e 'cat(sub("\\.\\d+$", "", getRversion()[[1]]))')
 R CMD INSTALL --library="$VENV_DIR/lib/R${R_VERSION}" lib/R-lib
 
-# Generate 'reload' function for R like the Pythons's 'importlib.reload'.
+# Generate 'reload' functions.
 if [ -n "$editable" ]; then
+    cat >>"$VENV_DIR/bin/activate" <<-"EOF"
+
+		# added by setup script for "editable mode"
+		PYTHONSTARTUP="$VIRTUAL_ENV/startup.py"
+		export PYTHONSTARTUP
+	EOF
+
     echo 'from importlib import reload' >"$VENV_DIR/startup.py"
 
     cat >"$VENV_DIR/Rprofile" <<-EOF

@@ -43,27 +43,24 @@ deactivate_py () {
 # unset irrelevant variables
 deactivate_py nondestructive
 
-VIRTUAL_ENV="/home/leogama/Projects/scratch/project-template/.venv"
+VIRTUAL_ENV="/home/leogama/Projects/project-template/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/bin:$PATH"
 export PATH
 
-# unset PYTHONHOME if set
+# unset PYTHONHOME and PYTHONSTARTUP if set
 # this will fail if PYTHONHOME is set to the empty string (which is bad anyway)
 # could use `if (set -u; : $PYTHONHOME) ;` in bash
 if [ -n "${PYTHONHOME:-}" ] ; then
     _OLD_VIRTUAL_PYTHONHOME="${PYTHONHOME:-}"
     unset PYTHONHOME
 fi
-
-# set potential PYTHONSTARTUP
 if [ -n "${PYTHONSTARTUP:-}" ] ; then
     _OLD_VIRTUAL_PYTHONSTARTUP="${PYTHONSTARTUP:-}"
+    unset PYTHONSTARTUP
 fi
-PYTHONSTARTUP="$VIRTUAL_ENV/startup.py"
-export PYTHONSTARTUP
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
@@ -199,3 +196,7 @@ deactivate () {
         unset -f deactivate
     fi
 }
+
+# added by setup script for "editable mode"
+PYTHONSTARTUP="$VIRTUAL_ENV/startup.py"
+export PYTHONSTARTUP
