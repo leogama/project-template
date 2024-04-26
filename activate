@@ -1,0 +1,201 @@
+# This file must be used with "source bin/activate" *from bash*
+# you cannot run it directly
+
+deactivate_py () {
+    # reset old environment variables
+    if [ -n "${_OLD_VIRTUAL_PATH:-}" ] ; then
+        PATH="${_OLD_VIRTUAL_PATH:-}"
+        export PATH
+        unset _OLD_VIRTUAL_PATH
+    fi
+    if [ -n "${_OLD_VIRTUAL_PYTHONHOME:-}" ] ; then
+        PYTHONHOME="${_OLD_VIRTUAL_PYTHONHOME:-}"
+        export PYTHONHOME
+        unset _OLD_VIRTUAL_PYTHONHOME
+    fi
+    if [ -n "${_OLD_VIRTUAL_PYTHONSTARTUP:-}" ] ; then
+        PYTHONHOME="${_OLD_VIRTUAL_PYTHONSTARTUP:-}"
+        export PYTHONSTARTUP
+        unset _OLD_VIRTUAL_PYTHONSTARTUP
+    fi
+
+    # This should detect bash and zsh, which have a hash command that must
+    # be called to get it to forget past commands.  Without forgetting
+    # past commands the $PATH changes we made may not be respected
+    if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+        hash -r 2> /dev/null
+    fi
+
+    if [ -n "${_OLD_VIRTUAL_PS1:-}" ] ; then
+        PS1="${_OLD_VIRTUAL_PS1:-}"
+        export PS1
+        unset _OLD_VIRTUAL_PS1
+    fi
+
+    unset VIRTUAL_ENV
+    unset VIRTUAL_ENV_PROMPT
+    if [ ! "${1:-}" = "nondestructive" ] ; then
+    # Self destruct!
+        unset -f deactivate_py
+    fi
+}
+
+# unset irrelevant variables
+deactivate_py nondestructive
+
+VIRTUAL_ENV="/home/leogama/Projects/scratch/project-template/.venv"
+export VIRTUAL_ENV
+
+_OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+
+# unset PYTHONHOME if set
+# this will fail if PYTHONHOME is set to the empty string (which is bad anyway)
+# could use `if (set -u; : $PYTHONHOME) ;` in bash
+if [ -n "${PYTHONHOME:-}" ] ; then
+    _OLD_VIRTUAL_PYTHONHOME="${PYTHONHOME:-}"
+    unset PYTHONHOME
+fi
+
+# set potential PYTHONSTARTUP
+if [ -n "${PYTHONSTARTUP:-}" ] ; then
+    _OLD_VIRTUAL_PYTHONSTARTUP="${PYTHONSTARTUP:-}"
+fi
+PYTHONSTARTUP="$VIRTUAL_ENV/pystartup"
+export PYTHONSTARTUP
+
+if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
+    _OLD_VIRTUAL_PS1="${PS1:-}"
+    PS1="(project-template) ${PS1:-}"
+    export PS1
+    VIRTUAL_ENV_PROMPT="(project-template) "
+    export VIRTUAL_ENV_PROMPT
+fi
+
+# This should detect bash and zsh, which have a hash command that must
+# be called to get it to forget past commands.  Without forgetting
+# past commands the $PATH changes we made may not be respected
+if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+    hash -r 2> /dev/null
+fi
+
+# The segment below was added by python-venvr.
+
+deactivate_r () {
+    unset R_HOME R_ENVIRON R_LIBS_SITE R_LIBS_USER RETICULATE_PYTHON
+    # reset old environment variables
+    if [ -n "${_OLD_VIRTUAL_R_HOME:-}" ] ; then
+        R_HOME="${_OLD_VIRTUAL_R_HOME:-}"
+        export R_HOME
+        unset _OLD_VIRTUAL_R_HOME
+    fi
+    if [ -n "${_OLD_VIRTUAL_R_ENVIRON:-}" ] ; then
+        R_ENVIRON="${_OLD_VIRTUAL_R_ENVIRON:-}"
+        export R_ENVIRON
+        unset _OLD_VIRTUAL_R_ENVIRON
+    fi
+    if [ -n "${_OLD_VIRTUAL_R_ENVIRON_USER:-}" ] ; then
+        R_ENVIRON_USER="${_OLD_VIRTUAL_R_ENVIRON_USER:-}"
+        export R_ENVIRON_USER
+        unset _OLD_VIRTUAL_R_ENVIRON_USER
+    fi
+    if [ -n "${_OLD_VIRTUAL_R_PROFILE_USER:-}" ] ; then
+        R_PROFILE_USER="${_OLD_VIRTUAL_R_PROFILE_USER:-}"
+        export R_PROFILE_USER
+        unset _OLD_VIRTUAL_R_PROFILE_USER
+    fi
+    if [ -n "${_OLD_VIRTUAL_R_LIBS_SITE:-}" ] ; then
+        R_LIBS_SITE="${_OLD_VIRTUAL_R_LIBS_SITE:-}"
+        export R_LIBS_SITE
+        unset _OLD_VIRTUAL_R_LIBS_SITE
+    fi
+    if [ -n "${_OLD_VIRTUAL_R_LIBS_USER:-}" ] ; then
+        R_LIBS_USER="${_OLD_VIRTUAL_R_LIBS_USER:-}"
+        export R_LIBS_USER
+        unset _OLD_VIRTUAL_R_LIBS_USER
+    fi
+    if [ -n "${_OLD_VIRTUAL_RETICULATE_PYTHON:-}" ] ; then
+        RETICULATE_PYTHON="${_OLD_VIRTUAL_RETICULATE_PYTHON:-}"
+        export RETICULATE_PYTHON
+        unset _OLD_VIRTUAL_RETICULATE_PYTHON
+    fi
+
+    # rehash commands
+    if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+        hash -r 2> /dev/null
+    fi
+
+    if [ ! "${1:-}" = "nondestructive" ] ; then
+    # Self destruct!
+        unset -f deactivate_r
+    fi
+}
+
+# unset irrelevant variables
+deactivate_r nondestructive
+
+# save R environment variables
+if [ -n "${R_HOME:-}" ] ; then
+    _OLD_VIRTUAL_R_HOME="$R_HOME"
+fi
+if [ -n "${R_ENVIRON:-}" ] ; then
+    _OLD_VIRTUAL_R_ENVIRON="$R_ENVIRON"
+fi
+if [ -n "${R_ENVIRON_USER:-}" ] ; then
+    _OLD_VIRTUAL_R_ENVIRON_USER="$R_ENVIRON_USER"
+fi
+if [ -n "${R_PROFILE_USER:-}" ] ; then
+    _OLD_VIRTUAL_R_PROFILE_USER="$R_PROFILE_USER"
+fi
+if [ -n "${R_LIBS_SITE:-}" ] ; then
+    _OLD_VIRTUAL_R_LIBS_SITE="$R_LIBS_SITE"
+fi
+if [ -n "${R_LIBS_USER:-}" ] ; then
+    _OLD_VIRTUAL_R_LIBS_USER="$R_LIBS_USER"
+fi
+if [ -n "${R_RETICULATE_PYTHON:-}" ] ; then
+    _OLD_VIRTUAL_R_RETICULATE_PYTHON="$R_RETICULATE_PYTHON"
+fi
+
+# point reticulate and rpy2 to the correct binaries
+R_HOME="/usr/lib/R"
+RETICULATE_PYTHON="$VIRTUAL_ENV/bin/python3.11"
+
+# point R config files to virtual environment
+R_ENVIRON_USER="$VIRTUAL_ENV/Renviron"
+R_PROFILE_USER="$VIRTUAL_ENV/Rprofile"
+
+# point R path variables to the local library
+r_libpath="$VIRTUAL_ENV/lib/R%v"
+if true ; then
+    # access system packages
+    R_LIBS_SITE="$r_libpath:${R_LIBS_SITE:-%S}"
+    # prepend in R_LIBS_USER for it to be the default library
+    R_LIBS_USER="$r_libpath:${R_LIBS_USER:-%U}"
+else
+    # isolated environment
+    R_LIBS_SITE="$r_libpath"
+    # repeat in R_LIBS_USER to disable default path
+    R_LIBS_USER="$r_libpath"
+    # overwrite R_ENVIRON, which may modify R_LIBS_SITE
+    R_ENVIRON="/dev/null"
+    export R_ENVIRON
+fi
+unset r_libpath
+
+export R_HOME R_ENVIRON_USER R_PROFILE_USER R_LIBS_SITE R_LIBS_USER RETICULATE_PYTHON
+
+# rehash commands
+if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+    hash -r 2> /dev/null
+fi
+
+deactivate () {
+    deactivate_py "$@"
+    deactivate_r "$@"
+    if [ ! "${1:-}" = "nondestructive" ] ; then
+    # Self destruct!
+        unset -f deactivate
+    fi
+}
