@@ -43,7 +43,7 @@ deactivate_py () {
 # unset irrelevant variables
 deactivate_py nondestructive
 
-VIRTUAL_ENV="/home/leogama/Projects/project-template/.venv"
+VIRTUAL_ENV="/home/leogama/Repos/tools/project-template/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

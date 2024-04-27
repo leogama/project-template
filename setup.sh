@@ -6,6 +6,7 @@ if [ "$1" = '-e' ]; then
     shift
 fi
 
+# Virtual environment naming.
 VENV_DIR='.venv'
 VENV_PROMPT=${PWD##*/}
 
